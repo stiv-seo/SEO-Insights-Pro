@@ -1,8 +1,8 @@
 "use client";
 
 import * as _React from "react";
-import { useState, useTransition } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import { useState, useTransition, useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -76,7 +76,7 @@ function SubmitButton() {
 }
 
 export default function SeoAnalyzer() {
-  const [state, formAction] = useFormState(analyzeSeoAction, initialState);
+  const [state, formAction] = useActionState(analyzeSeoAction, initialState);
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
 
